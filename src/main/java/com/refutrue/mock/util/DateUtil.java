@@ -20,12 +20,32 @@ public class DateUtil {
         Date d = null;
         SimpleDateFormat formater = new SimpleDateFormat(format);
         try {
-            formater.setLenient(false);
+            //formater.setLenient(false);
             d = formater.parse(dateStr);
         } catch (Exception e) {
             // log.error(e);
+            e.printStackTrace();
             d = null;
         }
         return d;
     }
+
+    /**
+     * 把日期转换为字符串
+     *
+     * @param date
+     * @return
+     */
+    public static String dateToString(java.util.Date date, String format) {
+        String result = "";
+        SimpleDateFormat formater = new SimpleDateFormat(format);
+        try {
+            result = formater.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+            // log.error(e);
+        }
+        return result;
+    }
+
 }

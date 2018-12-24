@@ -1,8 +1,5 @@
 package com.refutrue.mock.builder;
 
-import com.refutrue.mock.pojo.FieldMsg;
-
-import java.util.List;
 
 /**
  * @Author: Michael Xu
@@ -11,5 +8,5 @@ import java.util.List;
  */
 public interface IBeanBuilder <T>{
 
-    public T build(List<FieldMsg> list,Class<T> cls) throws Exception;
+    public T build(Class<T> cls) throws Exception;
 }

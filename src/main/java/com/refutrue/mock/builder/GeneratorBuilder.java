@@ -32,7 +32,8 @@ public class GeneratorBuilder<T> implements IGeneratorBuilder<T>{
                 if(randomClass != null){
                     try {
                         generator = (IGenerator) randomClass.newInstance();
-                        Field randomField = randomClass.getDeclaredField("random");
+                        Field randomField = randomClass.getSuperclass().getDeclaredField("random");
+                        randomField.setAccessible(true);
                         randomField.set(generator,annotation);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -45,11 +46,11 @@ public class GeneratorBuilder<T> implements IGeneratorBuilder<T>{
             }
             if(annotation instanceof Time){
                 generator = new TimeGenerateor();
-                ((TimeGenerateor) generator).setTime((Time)generator);
+                ((TimeGenerateor) generator).setTime((Time)annotation);
             }
             if(annotation instanceof Sign){
                 generator = new SignGenerator();
-                ((SignGenerator) generator).setSign((Sign)generator);
+                ((SignGenerator) generator).setSign((Sign)annotation);
             }
             fieldMsg.setGenerator(generator);
         });

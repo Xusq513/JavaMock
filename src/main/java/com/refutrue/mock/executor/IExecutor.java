@@ -5,7 +5,7 @@ package com.refutrue.mock.executor;
  * @Date: 2018/12/22 12:41
  * @Description:
  */
-public interface IExecutor {
+public interface IExecutor<T> {
 
-    public void execute();
+    public void execute() throws Exception;
 }
