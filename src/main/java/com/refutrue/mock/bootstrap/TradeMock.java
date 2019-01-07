@@ -12,7 +12,7 @@ import com.refutrue.mock.executor.IExecutor;
 public class TradeMock {
 
     public static void main(String[] args) throws Exception {
-        IExecutor<Trade> executor = new FileExecutor<>(Trade.class,30000000,"D:/trade.txt","&");
+        IExecutor<Trade> executor = new FileExecutor<>(Trade.class,50000000,"D:/trade5.txt","&");
         executor.execute();
     }
 }
